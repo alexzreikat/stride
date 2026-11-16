@@ -3,91 +3,83 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sant Roch vs SAINT</title>
+<title>SAINT à Genève</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* VOICE work: dossier de décision d'investissement, dense et posé
-   IDEA un relevé de thermomètre : chaud (sauna, bois) contre froid (bain glacé), deux modèles opposés
-   PICTURE capacité journalière dessinée unité par unité : 175 visites Sant Roch vs 40 créneaux SAINT
-   COLOUR blanc, encre #17130f, braise #e0532a pour le chaud/Sant Roch, glacier #1f7fd1 pour le froid/SAINT
+   IDEA le plan « bento » d'un studio de suites privées : chaque créneau horaire est une case à remplir
+   PICTURE le simulateur lui-même : les suites et leurs créneaux se remplissent selon l'occupation
+   COLOUR blanc, encre #17130f, glacier #1f7fd1 en couleur dominante, braise #d4471f pour les pertes
    TYPE Outfit 600 + Inter
-   LAYOUT titre-conclusion en haut, chiffres clés, figure pleine largeur ; puis fiches, simulateur, verdict ; tout empilé sous 600px */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0f0d0c);--ink:light-dark(#17130f,#f1ece7);--mut:light-dark(#5d544c,#b3aaa2);--rule:light-dark(#e6e0da,#2c2622);--soft:light-dark(#f7f3ef,#1a1613);--hot:light-dark(#d4471f,#ff7a50);--cold:light-dark(#1f7fd1,#5fb0ff);--hotbg:light-dark(#fdeee8,#2a1610);--coldbg:light-dark(#e9f3fc,#0f1d2b);--good:light-dark(#18794e,#4cc38a);--bad:light-dark(#b42318,#ff8a80)}
+   LAYOUT titre-conclusion et chiffres clés, puis simulateur (curseurs à gauche, résultat à droite), matrice de scénarios, concepts, Genève, verdict ; empilé sous 760px */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0f0d0c);--ink:light-dark(#17130f,#f1ece7);--mut:light-dark(#5d544c,#b3aaa2);--rule:light-dark(#e6e0da,#2c2622);--soft:light-dark(#f4f6f9,#171a1e);--hot:light-dark(#d4471f,#ff7a50);--cold:light-dark(#1f7fd1,#5fb0ff);--hotbg:light-dark(#fdeee8,#2a1610);--coldbg:light-dark(#e9f3fc,#0f1d2b);--good:light-dark(#18794e,#4cc38a);--goodbg:light-dark(#e6f4ec,#0f2419);--bad:light-dark(#b42318,#ff8a80)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
 h1,h2,h3{font-family:Outfit,Inter,sans-serif;letter-spacing:-.02em;line-height:1.08;text-wrap:balance;margin:0}
-h1{font-size:clamp(30px,4.4vw,48px);font-weight:700;max-width:22ch}
-h2{font-size:clamp(24px,3vw,34px);font-weight:600;margin-bottom:14px}
+h1{font-size:clamp(30px,4.2vw,46px);font-weight:700;max-width:24ch}
+h2{font-size:clamp(24px,3vw,32px);font-weight:600;margin-bottom:14px}
 h3{font-size:19px;font-weight:600;margin:22px 0 8px}
 p{margin:0 0 12px;max-width:72ch}
 a{color:inherit}
-.band{padding:clamp(28px,4vw,60px) max(5vw,16px)}
+.band{padding:clamp(28px,4vw,56px) max(5vw,16px)}
 .wrap{max-width:1240px;margin:0 auto}
-.lede{font-size:17px;color:var(--mut);margin-top:14px;max-width:66ch}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5em,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:26px}
+.lede{font-size:17px;color:var(--mut);margin-top:14px;max-width:70ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5em,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:24px}
 .kpi{background:var(--bg);padding:14px 16px}
-.kpi b{display:block;font:600 clamp(24px,3vw,32px)/1.1 Outfit,sans-serif;white-space:nowrap}
+.kpi b{display:block;font:600 clamp(22px,2.8vw,30px)/1.1 Outfit,sans-serif;white-space:nowrap;color:var(--cold)}
 .kpi span{font-size:13px;color:var(--mut)}
-.h b{color:var(--hot)}.c b{color:var(--cold)}
-.capfig{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:30px}
-.cap{padding:18px;border-radius:6px}
-.cap.h{background:var(--hotbg)}.cap.c{background:var(--coldbg)}
-.cap h3{margin:0 0 4px}
-.cap .sub{font-size:14px;color:var(--mut);margin-bottom:12px}
-.dots{display:grid;grid-template-columns:repeat(25,minmax(0,1fr));gap:3px}
-.dots i{aspect-ratio:1;border-radius:50%;background:var(--hot);opacity:.9}
-.dots i.e{background:transparent;outline:1.5px solid var(--hot);opacity:.45}
-.suites{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.suite{border:1.5px solid var(--cold);border-radius:4px;padding:6px}
-.suite div{font-size:13px;color:var(--mut);margin-bottom:4px}
-.slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}
-.slots i{aspect-ratio:1;background:var(--cold);border-radius:2px}
-.cap .note{font-size:13px;color:var(--mut);margin-top:12px}
 .alt{background:var(--soft)}
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,44px)}
-.card{border-top:4px solid var(--hot);padding-top:16px}
-.card.c{border-top-color:var(--cold)}
-.tag{display:inline-block;font-size:13px;padding:2px 10px;border-radius:99px;background:var(--hotbg);color:var(--hot);font-weight:600;margin-bottom:10px}
-.card.c .tag{background:var(--coldbg);color:var(--cold)}
 .scroll{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:15px}
 th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
 th{font-weight:600;font-size:14px;color:var(--mut)}
 td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.nw{white-space:nowrap}
 .src{font-size:13px;color:var(--mut)}
 ul{margin:0 0 12px;padding-left:20px}li{margin-bottom:5px}
-.pm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
-.pm h4{margin:10px 0 4px;font:600 15px Inter,sans-serif}
-.plus{color:var(--good)}.minus{color:var(--bad)}
 .sim{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,3vw,40px);margin-top:10px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.tabs button{font:600 16px Inter,sans-serif;min-height:44px;padding:0 18px;border-radius:99px;border:1.5px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer}
-.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.tabs button:focus-visible,input:focus-visible{outline:3px solid var(--cold);outline-offset:2px}
+.pre{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px}
+button{font:600 14px Inter,sans-serif;min-height:40px;padding:0 14px;border-radius:99px;border:1.5px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--cold)}
+button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--cold);outline-offset:2px}
 .ctl{margin-bottom:14px}
 .ctl label{display:flex;justify-content:space-between;gap:10px;font-size:15px;font-weight:500}
-.ctl label output{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
-.ctl input{width:100%;height:32px;accent-color:var(--acc,var(--hot))}
+.ctl output{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+.ctl input{width:100%;height:32px;accent-color:var(--cold)}
 .ctl small{display:block;font-size:13px;color:var(--mut)}
-.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:12px;margin-bottom:18px}
-.res div{background:var(--soft);padding:12px 14px;border-radius:6px}
-.res b{display:block;font:600 clamp(22px,2.6vw,30px)/1.1 Outfit,sans-serif;white-space:nowrap}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5em,1fr));gap:12px;margin-bottom:16px}
+.res div{background:var(--bg);border:1px solid var(--rule);padding:12px 14px;border-radius:6px}
+.res b{display:block;font:600 clamp(21px,2.5vw,28px)/1.1 Outfit,sans-serif;white-space:nowrap}
 .res span{font-size:13px;color:var(--mut)}
-.bars .row{display:grid;grid-template-columns:9.5em minmax(0,1fr) 6.5em;gap:10px;align-items:center;font-size:14px;margin-bottom:6px}
-.bars .tr{height:16px;background:var(--soft);border-radius:2px}
+.suites{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-bottom:6px}
+.suite{border:1.5px solid var(--cold);border-radius:4px;padding:6px;background:var(--bg)}
+.suite div{font-size:13px;color:var(--mut);margin-bottom:4px}
+.slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}
+.slots i{aspect-ratio:1;border-radius:2px;outline:1.5px solid var(--cold);outline-offset:-1.5px;opacity:.35}
+.slots i.f{background:var(--cold);opacity:1}
+.bars{margin-top:14px}
+.bars .row{display:grid;grid-template-columns:10.5em minmax(0,1fr) 6em;gap:10px;align-items:center;font-size:14px;margin-bottom:6px}
+.bars .tr{height:16px;background:var(--rule);border-radius:2px}
 .bars .bf{height:100%;border-radius:2px}
 .bars .v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.verdict{border-left:4px solid var(--ink);padding:4px 0 4px 18px;margin:8px 0 20px}
+.mx td.g{background:var(--goodbg);color:var(--good);font-weight:600}
+.mx td.r{background:var(--hotbg);color:var(--bad);font-weight:600}
+.mx small{display:block;font-weight:400;color:var(--mut);font-size:13px}
+.verdict{border-left:4px solid var(--cold);padding:4px 0 4px 18px;margin:8px 0 20px}
 .verdict p{font-size:17px}
+.note{background:var(--coldbg);padding:14px 16px;border-radius:6px;margin:12px 0}
+.note p:last-child{margin:0}
 .steps{counter-reset:s;list-style:none;padding:0}
 .steps li{counter-increment:s;padding-left:34px;position:relative;margin-bottom:10px}
 .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bg);font:600 13px/24px Inter;text-align:center}
 .srcs li{font-size:14px;overflow-wrap:anywhere}
-@media(max-width:760px){.capfig,.two,.sim,.pm{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:600px){table{font-size:13px}th,td{padding:6px 4px}.dots{grid-template-columns:repeat(18,minmax(0,1fr))}.bars .row{grid-template-columns:7em minmax(0,1fr) 5.5em;font-size:13px}.suites{gap:6px}}
+@media(max-width:760px){.two,.sim{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){table{font-size:13px}th,td{padding:6px 4px}.bars .row{grid-template-columns:7.5em minmax(0,1fr) 5.2em;font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--rule)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0;text-align:right}.stack td::before{content:attr(data-l);color:var(--mut);text-align:left;flex:none;max-width:40%}.stack td:first-child{font-weight:600;text-align:left}.stack td:first-child::before{content:none}}
 @media(prefers-reduced-motion:no-preference){.bars .bf{transition:width .35s ease}}
 </style>
 </head>
@@ -95,239 +87,217 @@ ul{margin:0 0 12px;padding-left:20px}li{margin-bottom:5px}
 
 <header class="band">
 <div class="wrap">
-<h1>Sant Roch vend du volume social, SAINT vend de l'intimité : même tendance, économies opposées</h1>
-<p class="lede">Deux concepts sauna + bain froid ouverts en 2026. Sant Roch (Paris 1er) remplit une grande salle de 60 m² à 45 € la séance. SAINT (Chelsea, New York) loue des suites privées à 99 $ l'heure. Les chiffres publics disponibles et un modèle de rentabilité suggèrent que le format social est nettement plus rentable par site, et que le format privé n'est intéressant que si le loyer et le capex sont subventionnés.</p>
+<h1>À Genève, un studio de suites privées se joue sur le remplissage et le personnel, pas sur le loyer</h1>
+<p class="lede">Modèle SAINT (New York) transposé à Genève : 4 suites privées sauna + bain froid, louées à l'heure pour 1 ou 2 personnes. Dans le scénario central, le studio dégage environ <span id="k-e-txt">180 k CHF</span> d'EBITDA par an. Passer d'une arcade de quartier à un sous-sol ne change ce résultat que d'environ 20 k CHF, alors que 10 points de remplissage en valent plus de 100 k. Tous les coûts sont des hypothèses à valider ; seuls les loyers et les prix de référence viennent de sources publiques.</p>
 <div class="kpis">
-<div class="kpi h"><b>4 500+</b><span>visites Sant Roch le 1er mois</span></div>
-<div class="kpi h"><b>85 %+</b><span>taux d'occupation annoncé</span></div>
-<div class="kpi h"><b>70 %</b><span>reviennent après la 1re séance</span></div>
-<div class="kpi c"><b>4</b><span>suites privées SAINT</span></div>
-<div class="kpi c"><b>99 $</b><span>la séance d'1 h chez SAINT</span></div>
-<div class="kpi c"><b>N.C.</b><span>montant de la pré-seed SAINT</span></div>
-</div>
-
-<div class="capfig" aria-label="Capacité journalière comparée">
-<div class="cap h">
-<h3>Sant Roch : ~175 visites par jour</h3>
-<div class="sub">Chaque point = 1 visiteur. Plein = occupé à 85 %, contour = places libres.</div>
-<div class="dots" id="dots"></div>
-<div class="note">Capacité déduite : 4 500 visites en un mois à 85 % d'occupation ≈ 175 places/jour, cohérent avec ~11 créneaux de 75 min × 16 à 18 personnes (Airbnb indique 18 max par créneau).</div>
-</div>
-<div class="cap c">
-<h3>SAINT : 40 créneaux par jour, 1 à 2 personnes</h3>
-<div class="sub">4 suites × ~10 créneaux d'1 h (nettoyage inclus), ouvert 6h30/7h–21h.</div>
-<div class="suites" id="suites"></div>
-<div class="note">Même à 100 % de remplissage avec un invité à chaque fois, la capacité plafonne à 80 personnes/jour : moins de la moitié de Sant Roch, avec une salle 4 fois plus petite (~102 m² vs 400 m²).</div>
-</div>
+<div class="kpi"><b id="k-rev">–</b><span>CA annuel HT, scénario central</span></div>
+<div class="kpi"><b id="k-e">–</b><span>EBITDA, scénario central</span></div>
+<div class="kpi"><b id="k-pb">–</b><span>pour rembourser l'investissement</span></div>
+<div class="kpi"><b id="k-be">–</b><span>de remplissage pour atteindre l'équilibre</span></div>
+<div class="kpi"><b>190–620</b><span>CHF/m²/an : loyers d'arcades relevés à Genève</span></div>
 </div>
 </div>
 </header>
 
-<section class="band alt">
-<div class="wrap two">
-
-<article class="card">
-<span class="tag">Paris · ouvert le 2 mars 2026</span>
-<h2>Sant Roch</h2>
-<p>Centre de « contrast therapy » sociale face aux Tuileries (8 rue Saint-Roch, 75001). 400 m² sur deux niveaux, le plus grand sauna de France (60 m², 80–90 °C), cinq bassins inox à 3–8 °C. Ouvert 7j/7 de 8h à 22h, sur réservation, adultes uniquement. Design par FuturStudio, l'agence qui a conçu les saunas Othership.</p>
-<h3>Fondateurs et capital</h3>
-<p>Jules et Chloé Bouscatel, cofondateurs de Monday Sports Club (Punch Boxing, Dynamo, RIISE : 19 studios en propre et 8 franchises signées en mai 2025). Le groupe est soutenu par Experienced Capital et Eutopia. <b>Aucune levée de fonds publique pour Sant Roch</b> ; le projet semble financé par les fondateurs et leur écosystème (déduction, non confirmée). Prospeo estime le CA de Monday Sports Club à ~7,2 M$ (estimation tierce, peu fiable).</p>
-<h3>Offre et prix publics</h3>
-<div class="scroll"><table>
-<thead><tr><th>Formule</th><th class="n">Prix</th></tr></thead>
-<tbody>
-<tr><td>Séance libre (jusqu'à 75 min)</td><td class="n">45 €</td></tr>
-<tr><td>Rituel guidé (60 min + 15 min libres)</td><td class="n">non publié</td></tr>
-<tr><td>Packs de crédits, abonnements de 1 entrée/mois à illimité</td><td class="n">jusqu'à 180 €/mois</td></tr>
-<tr><td>Airbnb Experiences (séance libre)</td><td class="n">≈ 42 € ; 4,87★ (142 avis)</td></tr>
-</tbody></table></div>
-<h3>Traction publique (1er mois, Spa Business)</h3>
-<ul><li>4 500+ visiteurs, occupation &gt; 85 %</li><li>100+ abonnements vendus</li><li>70 % de retour après la première séance</li><li>Rituels guidés complets jusqu'à 7 jours à l'avance</li></ul>
-<div class="pm">
-<div><h4 class="plus">Forces</h4><ul><li>Débit élevé : un seul grand sauna partagé</li><li>Communauté, événements, alternative à l'apéro</li><li>Fondateurs rodés au fitness boutique parisien (acquisition, abonnements, ops multi-sites)</li></ul></div>
-<div><h4 class="minus">Fragilités</h4><ul><li>Gros m², gros loyer en hypercentre</li><li>Saisonnalité estivale probable</li><li>L'illimité à 180 € peut diluer le panier si les habitués viennent 3×/semaine</li></ul></div>
-</div>
-</article>
-
-<article class="card c">
-<span class="tag">New York · ouvert en 2025–2026</span>
-<h2>SAINT</h2>
-<p>Studios privés : chaque réservation donne une suite entière (sauna cèdre, bain glacé inox, douche pluie, coiffeuse) pour 1 ou 2 personnes. 4 suites sur ~102 m², 242 W 29th St, Chelsea, au pied de la tour Ruby. Design BoND, identité GerardGerdin. Réservation via appli.</p>
-<h3>Fondateurs et capital</h3>
-<p>Alex Feldman et Amanda Hensen, anciens collègues chez WeWork (2015), premiers entrepreneurs. Soutien précoce de MaryAnne Gilmartin (MAG Partners, promotrice de l'immeuble). Happy Wellness Group annonce avoir mené la <b>pré-seed</b> (montant non communiqué) pour un concept de « pods » privés à Midtown prévu au T3 2026. Pour repère, une pré-seed type en 2026 : 0,25–1,5 M$.</p>
-<h3>Offre et prix publics</h3>
-<div class="scroll"><table>
-<thead><tr><th>Formule</th><th class="n">Prix</th></tr></thead>
-<tbody>
-<tr><td>Séance privée 60 min, 1 personne</td><td class="n">99 $</td></tr>
-<tr><td>Séance avec invité (2 personnes)</td><td class="n">149 $</td></tr>
-<tr><td>Abonnement 8 séances/mois</td><td class="n">396 $/mois</td></tr>
-<tr><td>Illimité annuel</td><td class="n">4 999 $/an</td></tr>
-</tbody></table></div>
-<p class="src">Prix relevés par Nearest Sauna en octobre ; Time Out indiquait « à partir de 90 $ » à l'ouverture.</p>
-<h3>Traction publique</h3>
-<ul><li>Aucun chiffre de fréquentation ou de CA publié</li><li>Large couverture presse et design (Dezeen, Time Out, Goop)</li><li>Signal positif : la levée pré-seed vise un 2e site, donc le 1er convainc assez pour lever</li></ul>
-<div class="pm">
-<div><h4 class="plus">Forces</h4><ul><li>Petite surface, ticket élevé</li><li>Peu de personnel, très automatisable</li><li>Format « amenity » vendable aux promoteurs, hôtels, bureaux</li></ul></div>
-<div><h4 class="minus">Fragilités</h4><ul><li>Capacité plafonnée : 4 suites = 40 créneaux</li><li>Plomberie et chauffe ×4 : capex par m² élevé</li><li>Creux de journée difficiles à remplir</li></ul></div>
-</div>
-</article>
-
-</div>
-</section>
-
-<section class="band" id="rentabilite">
+<section class="band alt" id="simulateur">
 <div class="wrap">
-<h2>Rentabilité d'un site : le social dégage 3 à 5 fois plus d'EBITDA</h2>
-<p>Aucun des deux ne publie de comptes. Le simulateur part des prix et de la capacité publics, et d'hypothèses de coûts (loyer, personnel, énergie, capex) à valider sur le terrain. Ajustez les curseurs.</p>
-<div class="tabs" role="group" aria-label="Modèle">
-<button id="t-sr" aria-pressed="true">Sant Roch · social</button>
-<button id="t-st" aria-pressed="false">SAINT · privé</button>
-</div>
+<h2>Simulateur : un studio type SAINT à Genève</h2>
 <div class="sim">
-<div id="ctls"></div>
+<div>
+<div class="ctl"><label for="i-su">Nombre de suites <output id="o-su"></output></label><input type="range" id="i-su" min="2" max="6" step="1"><small>SAINT : 4 suites sur 102 m². Compté ici : 22 m² par suite + 20 m² d'accueil et technique.</small></div>
+<div class="ctl"><label for="i-occ">Remplissage moyen sur l'année <output id="o-occ"></output></label><input type="range" id="i-occ" min="15" max="85" step="1"><small>10 créneaux d'1 h par suite et par jour (7h–21h, nettoyage compris), 365 jours.</small></div>
+<div class="ctl"><label for="i-tkt">Revenu moyen par créneau, HT <output id="o-tkt"></output></label><input type="range" id="i-tkt" min="50" max="140" step="1"><small>Repère local : Shape (Acacias) vend 55 min en duo dès 79.90 CHF. SAINT : 99 $ seul, 149 $ à deux, ~50 $ la séance en abonnement.</small></div>
+<div class="ctl"><label for="i-rent">Loyer <output id="o-rent"></output></label><input type="range" id="i-rent" min="150" max="1000" step="10">
+<div class="pre"><button data-r="250">Sous-sol · 250</button><button data-r="450">Arcade de quartier · 450</button><button data-r="700">Centre-ville · 700</button></div><small>CHF par m² et par an, hors charges (40 CHF/m² ajoutés).</small></div>
+<div class="ctl"><label for="i-etp">Personnel, équivalents temps plein <output id="o-etp"></output></label><input type="range" id="i-etp" min="1" max="5" step="0.5"><small>80 k CHF chargés par poste. 3 = accueil permanent sur 98 h/semaine. 1,5 = accès par code, seulement ménage et gérance.</small></div>
+<div class="ctl"><label for="i-cap">Investissement initial <output id="o-cap"></output></label><input type="range" id="i-cap" min="400" max="1500" step="25"><small>Travaux, saunas, groupes froids, ventilation, design. Un sous-sol ajoute en général ventilation et relevage des eaux.</small></div>
+<button id="reset">Revenir au scénario central</button>
+</div>
 <div>
 <div class="res" id="res"></div>
+<div class="suites" id="suites"></div>
+<p class="src" id="cap-txt"></p>
 <div class="bars" id="bars"></div>
-<p class="src" id="hyp"></p>
+<p class="src">Autres hypothèses : énergie 7 k CHF par suite + 4 k, linge et consommables 5 CHF par créneau, marketing, logiciels, assurance et maintenance 60 k CHF, frais de paiement 2,5 %. Hors TVA (8,1 %), amortissements, intérêts et impôts.</p>
 </div>
 </div>
 
-<h3>Scénarios</h3>
-<div class="scroll"><table>
-<thead><tr><th>Scénario</th><th class="n">Occupation</th><th class="n">Panier</th><th class="n">CA annuel</th><th class="n">EBITDA</th><th class="n">Retour capex</th></tr></thead>
-<tbody id="scen"></tbody></table></div>
-<p class="src">Estimations, pas des chiffres publiés. Panier = revenu moyen par visite (Sant Roch) ou par créneau réservé (SAINT), abonnements et invités inclus.</p>
-</div>
-</section>
+<h3>Emplacement × remplissage : l'EBITDA annuel</h3>
+<div class="scroll"><table class="mx">
+<thead><tr><th>Scénario</th><th class="n">Sous-sol<br>250 CHF/m²</th><th class="n">Arcade de quartier<br>450 CHF/m²</th><th class="n">Centre-ville<br>700 CHF/m²</th></tr></thead>
+<tbody id="mx"></tbody></table></div>
+<p class="src">La matrice reprend le nombre de suites, le personnel et l'investissement réglés ci-dessus. Le sous-sol est compté avec 100 k CHF d'investissement en plus et 15 k CHF de marketing annuel en plus (pas de vitrine). Entre parenthèses : années pour rembourser l'investissement.</p>
 
-<section class="band alt">
-<div class="wrap two">
-<div>
-<h2>Le marché lève, surtout pour le format social</h2>
-<div class="scroll"><table>
-<thead><tr><th>Acteur</th><th>Modèle</th><th class="n">Fonds levés</th><th>Sites</th></tr></thead>
-<tbody>
-<tr><td>Bathhouse (NYC)</td><td>Social, spa</td><td class="n">35 M$</td><td>3 à NYC, objectif 10 (LA, Chicago, Nashville)</td></tr>
-<tr><td>Othership (Toronto, NYC)</td><td>Social guidé, ~55–64 $</td><td class="n">~18 M$</td><td>4, UES 14 000 sq ft en 2027</td></tr>
-<tr><td>Sauna House (Charlotte)</td><td>Franchise</td><td class="n">9,6 M$</td><td>3+ ouvertures/an</td></tr>
-<tr><td>AIRE Ancient Baths</td><td>Bains premium, 205 CAD</td><td class="n">Khemia, minoritaire</td><td>10 ; CA 69,4 M€, EBITDA 36 %</td></tr>
-<tr><td>SAINT</td><td>Suites privées</td><td class="n">pré-seed</td><td>1, 2e prévu Midtown</td></tr>
-<tr><td>Sant Roch</td><td>Social, grand sauna</td><td class="n">aucune publique</td><td>1</td></tr>
-</tbody></table></div>
-<p class="src">Estimation Sauna News pour le flagship Othership Adelaide (~280 m²) : ~3,6 M CAD/an, ~1 200 CAD par sq ft. Soit ~13 000 CAD (~8 500 €) de CA par m² et par an ; le scénario central Sant Roch ressort à ~4 000 €/m².</p>
-</div>
-<div>
-<h2>Ce que ça veut dire pour vous</h2>
-<div class="verdict"><p><b>Le format social est le meilleur pari économique ; le format privé est le plus accessible à financer.</b> Le social exige ~1–1,5 M€ et un local de 300–500 m² capable de porter l'eau et la chaleur, et peut se rembourser en ~3 ans dans le scénario central. Le privé démarre avec ~0,6–1 M€ mais met ~8 ans à se rembourser dans le scénario central (2 ans seulement s'il tourne à 70 % et 100 $ de panier), sauf si un propriétaire finance l'aménagement, comme MAG Partners semble l'avoir fait pour SAINT.</p></div>
-<h3>Où se trouve l'opportunité</h3>
-<ul>
-<li><b>Grandes villes françaises hors Paris</b> (Lyon, Bordeaux, Lille, Nantes, Marseille) : format Sant Roch en 250–350 m², loyers 2 à 3 fois plus bas.</li>
-<li><b>Paris, autre rive</b> (11e, 17e, Boulogne) : Sant Roch prouve la demande à 45 € mais n'a qu'un site.</li>
-<li><b>Privé en B2B2C</b> : suites SAINT installées dans résidences, hôtels, clubs ou bureaux, le partenaire payant le capex.</li>
-<li><b>Hybride</b> : un grand sauna social plus 2 suites privées premium pour couples et heures creuses.</li>
-</ul>
-<h3>Risques à chiffrer avant de signer</h3>
-<ul>
-<li>Local : charge au sol, évacuation, ventilation, ERP et accord du bailleur pour l'eau et la chaleur.</li>
-<li>Hygiène des bassins (traitement, analyses) et assurance RC pour contre-indications cardiaques.</li>
-<li>Énergie : sauna électrique et groupes froids ; un choc de prix efface 3 à 5 points de marge.</li>
-<li>Effet de mode et saisonnalité : visez une rétention d'abonnés supérieure à 6 mois.</li>
-<li>Concurrence : les acteurs américains financés (Othership, Bathhouse) pourraient venir en Europe.</li>
-</ul>
-</div>
+<div class="note"><p><b>Garde-fou.</b> Aux États-Unis, les franchises de suites privées publient des moyennes de 500 à 575 k$ de CA par studio (SWTHZ, Perspire), pour 0,6 à 1,3 M$ investis. Le scénario central atteint ce niveau avec seulement 4 suites : il suppose donc un prix premium tenu et un remplissage de 50 % toute l'année. Le scénario prudent est le plus proche de ce que font les studios moyens.</p></div>
 </div>
 </section>
 
 <section class="band">
 <div class="wrap two">
 <div>
-<h2>Validez en 6 semaines avant d'engager un bail</h2>
-<ol class="steps">
-<li>Faites 3 séances chez Sant Roch (pic du soir, creux de 14h, week-end) et comptez les personnes par créneau.</li>
-<li>Téléchargez l'appli SAINT et relevez sur 2 semaines les créneaux disponibles, pour mesurer l'occupation réelle.</li>
-<li>Consultez sur Pappers les comptes de la société exploitant Sant Roch et de Monday Sports Club dès leur dépôt.</li>
-<li>Faites chiffrer un local cible par un installateur sauna/froid : capex, kW, mise en conformité.</li>
-<li>Prévendez : une liste d'attente ou des cartes « membres fondateurs » ; 300 inscrits qualifiés valident la demande locale.</li>
-<li>Rencontrez 2 ou 3 bailleurs ou promoteurs pour tester l'idée d'un aménagement financé (modèle SAINT).</li>
-</ol>
+<h2>SAINT : ce qu'on sait vraiment</h2>
+<p>Studio ouvert à Chelsea (242 W 29th St, New York), au pied de la tour Ruby. 102 m², quatre suites privées avec chacune un sauna sec en cyprès, un bain froid inox, une douche et un espace pour se changer, plus un lobby, des toilettes et un local technique. Le plan est organisé « comme une boîte bento », en volumes très compacts (Dezeen). Fondateurs : Alex Feldman et Amanda Taylor-Hensen, anciens de WeWork.</p>
+<div class="scroll"><table>
+<thead><tr><th>Formule</th><th class="n">Prix</th></tr></thead>
+<tbody>
+<tr><td>Séance privée 60 min, 1 personne</td><td class="n">99 $</td></tr>
+<tr><td>Séance à deux</td><td class="n">149 $</td></tr>
+<tr><td>Abonnement 8 séances/mois</td><td class="n">396 $/mois</td></tr>
+<tr><td>Illimité annuel</td><td class="n">4 999 $/an</td></tr>
+</tbody></table></div>
+<p class="src">Horaires 6h30/7h–21h. Aucun chiffre de fréquentation ni de CA n'est public. Les fondateurs disent préparer d'autres adresses à New York.</p>
 </div>
 <div>
+<h2>Les « pods » et la pré-seed : une seule et même chose, mal documentée</h2>
+<p><b>Les pods sont les suites.</b> Dezeen décrit le studio de Chelsea comme « quatre wellness pods privés ». Il ne s'agit pas d'un second produit plus petit du type capsule : un pod SAINT est une pièce complète d'environ 20 m².</p>
+<p><b>La pré-seed est une information fragile.</b> La seule trace est un titre sur le site de Happy Wellness Group : « SAINT Secures Pre-Seed Lead for Private Contrast Therapy Concept », avec la mention d'un concept de pods privés à Midtown Manhattan pour le 3e trimestre 2026. Ce que cela permet de dire, et pas plus :</p>
+<ul>
+<li>« Secures a lead » signifie qu'un investisseur principal s'est engagé, pas que le tour est bouclé. Aucun montant ni nom n'est publié.</li>
+<li>Happy Wellness Group se présente comme un groupe d'investissement qui accompagne des sociétés en phase de concept, pas comme un fonds de capital-risque connu.</li>
+<li>Je n'ai pas pu lire l'article (accès refusé) et aucun autre média ne le reprend. La description correspond à SAINT, mais le lien n'est pas confirmé ; « Midtown » peut désigner un 2e site ou simplement la 29e rue, à la limite de Chelsea.</li>
+</ul>
+<p>J'avais écrit dans la première version que Happy Wellness Group avait « mené » la pré-seed : c'était trop affirmatif. Le soutien le mieux établi reste celui de MaryAnne Gilmartin (MAG Partners), promotrice de l'immeuble (Time Out).</p>
+</div>
+</div>
+</section>
+
+<section class="band alt">
+<div class="wrap">
+<h2>Les concepts de sauna privé qui existent ailleurs</h2>
+<p>Trois familles : la suite premium avec accueil (SAINT), la franchise à abonnement (États-Unis), et la cabine en libre-service sans personnel (Suisse, Japon), qui est le vrai format « plus petit ».</p>
+<div class="scroll"><table class="stack">
+<thead><tr><th>Concept</th><th>Format</th><th>Prix</th><th>Taille et traction publiques</th></tr></thead>
+<tbody>
+<tr><td>SAINT, New York</td><td data-l="Format">Suite privée 1–2 pers., sauna sec + bain froid, accueil</td><td data-l="Prix" class="nw">99 $ / h</td><td data-l="Traction">1 site, 4 suites, 102 m²</td></tr>
+<tr><td>SWTHZ, États-Unis</td><td data-l="Format">Franchise : suite privée sauna infrarouge + bain froid + douche</td><td data-l="Prix">Abonnement</td><td data-l="Traction">CA moyen 574 k$ par studio (13 studios, 2024), investissement 0,63–1,31 M$</td></tr>
+<tr><td>Perspire Sauna Studio, États-Unis</td><td data-l="Format">Franchise : cabines infrarouges privées</td><td data-l="Prix">Abonnement</td><td data-l="Traction">44 studios franchisés, CA moyen ~506–546 k$, investissement 0,57–0,99 M$</td></tr>
+<tr><td>MyWellness, Allemagne</td><td data-l="Format">Suite spa privée jusqu'à 4 pers. : sauna, jacuzzi, lit flottant</td><td data-l="Prix">À l'heure</td><td data-l="Traction">Depuis 2012, 14–15 sites en propre, ~500 salariés</td></tr>
+<tr><td>LÖYLY, Suisse</td><td data-l="Format">Sauna finlandais privé en libre-service, accès par code, sans personnel, en extérieur</td><td data-l="Prix">Crédits dès 50 CHF, 2 h conseillées</td><td data-l="Traction">16 sites depuis février 2023, dont Lausanne ; pas Genève</td></tr>
+<tr><td>Yskamer, Amsterdam</td><td data-l="Format">Tout le lieu privatisé : sauna 90 °C + 2 bains froids</td><td data-l="Prix" class="nw">85 € / h, 1–6 pers.</td><td data-l="Traction">1 site</td></tr>
+<tr><td>Solo Sauna tune, Tokyo</td><td data-l="Format">Cabine individuelle finlandaise avec douche froide, dans un hôtel</td><td data-l="Prix" class="nw">3 800 ¥ / h (2020)</td><td data-l="Traction">Ouvert en 2020, premier du genre au Japon</td></tr>
+<tr><td>Shape, Genève (Acacias)</td><td data-l="Format">Salle privée 2 pers. max : bain froid + sauna infrarouge, adossée à un studio EMS</td><td data-l="Prix" class="nw">dès 79.90 CHF / 55 min en duo</td><td data-l="Traction">Concurrent local direct</td></tr>
+</tbody></table></div>
+<p class="src">Les chiffres des franchises viennent de synthèses de leurs documents de franchise, pas des documents eux-mêmes. Aucun de ces acteurs ne publie sa rentabilité par site.</p>
+<h3>Ce que ces exemples apprennent</h3>
+<ul>
+<li><b>Le format tient dans la durée</b> : MyWellness l'exploite depuis 2012 et continue d'ouvrir. Sa suite est plus grande et vendue comme une sortie à deux ou entre amis, pas comme une routine santé.</li>
+<li><b>Le libre-service change l'économie</b> : LÖYLY a ouvert 16 sites en moins de trois ans sans personnel sur place. C'est la preuve suisse que l'accès par code et le ménage par le client sont acceptés.</li>
+<li><b>Les franchises américaines vivent de l'abonnement</b>, avec un panier par séance bien plus bas que SAINT. Le prix premium à la séance reste à prouver hors de Manhattan.</li>
+</ul>
+</div>
+</section>
+
+<section class="band">
+<div class="wrap two">
+<div>
+<h2>Genève : loyers relevés</h2>
+<div class="scroll"><table>
+<thead><tr><th>Annonce</th><th class="n">Surface</th><th class="n">CHF/m²/an</th></tr></thead>
+<tbody>
+<tr><td>Sous-sol d'une arcade, Ferdinand-Hodler (1207)</td><td class="n">44 m²</td><td class="n">~190</td></tr>
+<tr><td>Arcade, rue de Lyon</td><td class="n">270 m²</td><td class="n">280</td></tr>
+<tr><td>Arcades coopérative SCHG, avec dépôts en sous-sol</td><td class="n">95–141 m²</td><td class="n">350</td></tr>
+<tr><td>Arcade, rue de Monthoux (Pâquis)</td><td class="n">40 m²</td><td class="n">410</td></tr>
+<tr><td>Arcade, rue du Môle (Cornavin)</td><td class="n">80 m²</td><td class="n">~420</td></tr>
+<tr><td>Arcades Ville de Genève</td><td class="n">–</td><td class="n">432–475</td></tr>
+<tr><td>Arcade, Ferdinand-Hodler (1207)</td><td class="n">183 m²</td><td class="n">~590</td></tr>
+<tr><td>Arcade duplex, rue du Roveray (Eaux-Vives)</td><td class="n">–</td><td class="n">612</td></tr>
+<tr><td>Arcade, secteur gare (1201)</td><td class="n">536 m²</td><td class="n">616</td></tr>
+</tbody></table></div>
+<p class="src">Loyers demandés dans des annonces, hors TVA et charges ; les « ~ » sont mes calculs à partir du loyer mensuel. Les rues les plus chères (Rhône, Mont-Blanc) sont au-dessus de cette fourchette. Pas de statistique officielle trouvée.</p>
+<h3>Le sous-sol, concrètement</h3>
+<ul>
+<li><b>Pour</b> : loyer environ deux fois plus bas, le client n'a pas besoin de vitrine puisqu'il réserve en ligne, et l'absence de fenêtres convient à l'ambiance.</li>
+<li><b>Contre</b> : ventilation et déshumidification à créer, pompe de relevage pour les bains et les douches, puissance électrique, issues de secours et autorisation d'accueillir du public. Ces points peuvent coûter plus que l'économie de loyer.</li>
+<li>Le meilleur compromis est souvent une petite arcade en rez avec les suites au sous-sol relié, comme l'annonce Ferdinand-Hodler.</li>
+</ul>
+</div>
+<div>
+<h2>Mon avis</h2>
+<div class="verdict"><p><b>Le modèle est viable à Genève si le studio est rempli à moitié et si le personnel reste léger.</b> Dans le scénario central, le loyer pèse environ 10 % du CA ; le personnel en pèse près de 40 %. Un format hybride entre SAINT et LÖYLY (accès par code, une personne sur place aux heures pleines) est celui qui résiste le mieux à un remplissage décevant.</p></div>
+<h3>Ce qui joue pour Genève</h3>
+<ul>
+<li>Pouvoir d'achat élevé, clientèle internationale habituée à ces formats, goût de la discrétion.</li>
+<li>Offre actuelle surtout collective et bon marché (La Banquise à 10 CHF, saunas du lac à 15 CHF) ou adossée à autre chose (Shape). Aucun studio de suites privées premium identifié.</li>
+<li>Loyers d'arcade modérés rapportés au prix de vente possible.</li>
+</ul>
+<h3>Ce qui joue contre</h3>
+<ul>
+<li>Salaires : chaque poste ajouté coûte environ 80 k CHF, soit 2,5 créneaux vendus par jour.</li>
+<li>Petite ville : environ 200 000 habitants intra-muros, donc peu de place pour un 2e ou 3e site.</li>
+<li>Saunas publics très bon marché en hiver et lac gratuit en été.</li>
+<li>Travaux et autorisations en immeuble d'habitation : bruit des groupes froids, humidité, accord du bailleur.</li>
+</ul>
+<h3>Avant de signer un bail</h3>
+<ol class="steps">
+<li>Faire chiffrer un local réel par un installateur sauna et un ingénieur ventilation : c'est le chiffre le plus incertain du modèle.</li>
+<li>Tester Shape aux Acacias et relever ses créneaux libres sur deux semaines pour estimer le remplissage local.</li>
+<li>Vérifier auprès du canton les exigences pour un local recevant du public en sous-sol et pour l'hygiène des bains.</li>
+<li>Prévendre 150 à 200 abonnements fondateurs avant les travaux.</li>
+<li>Demander à 2 ou 3 régies ou hôtels s'ils financeraient l'aménagement contre un loyer indexé sur le CA.</li>
+</ol>
+</div>
+</div>
+</section>
+
+<section class="band alt">
+<div class="wrap">
 <h2>Sources</h2>
 <ul class="srcs">
-<li><a href="https://www.spabusiness.com/wellness-news/Parisian-contrast-therapy-destination-Sant-Roch-reveals-first-months-successes/362816">Spa Business : premiers résultats de Sant Roch</a></li>
-<li><a href="https://www.timeout.fr/paris/actualites/le-plus-grand-spa-de-france-ouvre-a-paris-face-aux-tuileries-avec-une-nouvelle-vision-du-bien-etre-030526">Time Out Paris : ouverture, 45 €</a></li>
-<li><a href="https://luxe.net/sant-roch-paris-sauna-contrast-therapy-bien-etre/">Luxe.net : formules jusqu'à 180 € illimité</a></li>
-<li><a href="https://www.sortiraparis.com/en/what-to-do-in-paris/sport-wellness/articles/341220-sant-roch-paris-s-new-400m-wellness-sanctuary-featuring-an-xxl-sauna-and-cold-plunge-pools">Sortir à Paris : 400 m², 5 bassins</a></li>
-<li><a href="https://www.airbnb.co.in/experiences/7286500">Airbnb Experiences : séance libre Sant Roch</a></li>
-<li><a href="https://ac-franchise.com/article/le-groupe-monday-sports-club-a-un-nouveau-directeur-general">AC Franchise : Monday Sports Club, actionnaires</a></li>
-<li><a href="https://www.franchise-magazine.com/news-franchise/reseaux-clubs-sport-dynamo-punch-riise-mai-2025">Franchise Magazine : 19 sites, 8 franchises</a></li>
+<li><a href="https://www.dezeen.com/2026/07/11/bond-saint-private-sauna-chelsea-new-york/">Dezeen : SAINT, 102 m², quatre « wellness pods »</a></li>
 <li><a href="https://nearestsauna.com/new-york-ny/saint/">Nearest Sauna : prix et horaires SAINT</a></li>
-<li><a href="https://www.timeout.com/newyork/news/duck-inside-your-own-private-cedar-sauna-at-this-new-spot-in-chelsea-022526">Time Out New York : SAINT, MAG Partners</a></li>
-<li><a href="https://globetrender.com/2026/04/13/saint-personal-space/">Globetrender : fondateurs, 4 studios</a></li>
-<li><a href="https://happywellnessgroup.com/newsroom/">Happy Wellness Group : pré-seed SAINT</a></li>
-<li><a href="https://athletechnews.com/bathhouse-raises-35-million-plots-expansion-as-social-sauna-boom-scales/">Athletech News : Bathhouse 35 M$</a></li>
-<li><a href="https://www.saunanews.com/article/othership-aire-two-models-contrast-wellness">Sauna News : Othership vs AIRE</a></li>
+<li><a href="https://www.timeout.com/newyork/news/duck-inside-your-own-private-cedar-sauna-at-this-new-spot-in-chelsea-022526">Time Out New York : SAINT et MAG Partners</a></li>
+<li><a href="https://globetrender.com/2026/04/13/saint-personal-space/">Globetrender : fondateurs de SAINT</a></li>
+<li><a href="https://happywellnessgroup.com/newsroom/">Happy Wellness Group : titre sur la pré-seed (page non lisible)</a></li>
+<li><a href="https://www.wellnessfranchisehq.com/guides/swthz-franchise-cost">Wellness Franchise HQ : SWTHZ</a></li>
+<li><a href="https://www.wellnessfranchisehq.com/guides/perspire-sauna-studio-franchise-cost">Wellness Franchise HQ : Perspire</a> et <a href="https://franzy.com/franchises/perspire-sauna-studio">Franzy</a></li>
+<li><a href="https://mywellness.de/presse/mywellness-eroeffnet-in-mannheim/">MyWellness : 14e site, ~500 salariés</a></li>
+<li><a href="https://www.loyly.ch/">LÖYLY : saunas privés en libre-service</a></li>
+<li><a href="https://yskamer.nl/private-sauna-amsterdam/">Yskamer Amsterdam</a></li>
+<li><a href="https://soranews24.com/2020/12/03/japans-first-finnish-style-sauna-facility-with-private-rooms-opens-in-tokyo/">SoraNews24 : Solo Sauna tune</a></li>
+<li><a href="https://shape.ch/en/ice-plunge-in-geneva-contrast-therapy/">Shape Genève</a></li>
+<li><a href="https://www.geneve.ch/banquise">Ville de Genève : La Banquise</a> ; <a href="https://finnishsauna.ch/">Sauna finlandais d'Anières</a></li>
+<li>Loyers : <a href="https://www.immoscout24.ch/en/industrial-object/rent/quarter-eaux-vives-lac-geneve">ImmoScout24 Eaux-Vives</a>, <a href="https://www.immoscout24.ch/en/industrial-object/rent/postcode-1201-geneve">ImmoScout24 1201</a>, <a href="https://myimmo.spg.ch/fr/o/a-louer-arcade-geneve-6132415">SPG rue de Lyon</a>, <a href="https://schg.ch/fr/news/arcades-commerciales-a-louer">SCHG</a>, <a href="https://www.dreamo.ch/fr/o/louer-centre-commercial-geneve-6023735">Dreamo rue du Môle</a>, <a href="https://www.immoscout24.ch/en/industrial-object/rent/quarter-paquis-navigation-geneve">ImmoScout24 Pâquis</a></li>
 </ul>
-<p class="src">Recherche du 16 novembre 2026. Les sites officiels (sant-roch.com, app SAINT) n'ont pas pu être lus intégralement ; les prix peuvent avoir changé.</p>
-</div>
+<p class="src">Recherche du 16 novembre 2026. Les prix et annonces peuvent avoir changé.</p>
 </div>
 </section>
 
 <script>
 {
 const $=id=>document.getElementById(id);
-// capacity picture
-$('dots').innerHTML=Array.from({length:175},(_,i)=>`<i class="${i<149?'':'e'}"></i>`).join('');
-$('suites').innerHTML=[1,2,3,4].map(n=>`<div class="suite"><div>Suite ${n}</div><div class="slots">${'<i></i>'.repeat(10)}</div></div>`).join('');
-
-const M={
-sr:{cur:'€',acc:'var(--hot)',unit:'visites',
- hyp:'Hypothèses Sant Roch : 175 places/jour, 365 jours, revenus annexes (boissons, boutique, cartes cadeaux, privatisations) de 6 %, frais de paiement 2 %, consommables et linge 2 € par visite, énergie 80 k€, marketing, logiciel, assurance et maintenance 150 k€, capex 1,3 M€ (≈ 3 250 €/m²). Personnel : ~9 ETP chargés (98 h d\'ouverture/semaine, accueil, guides, manager).',
- cap:175,anc:.06,fee:.02,cons:2,energy:80000,other:150000,capex:1300000,
- c:[['occ','Occupation moyenne annuelle',30,95,1,70,'%','85 % annoncés au lancement ; prévoir un creux l\'été'],
-    ['tkt','Revenu moyen par visite',20,50,1,34,'€','45 € à l\'unité, abonnés illimités à 180 €/mois tirent la moyenne vers le bas'],
-    ['rent','Loyer + charges (400 m²)',150,600,10,330,'k€','Paris 1er, ~800 €/m²/an'],
-    ['staff','Masse salariale chargée',250,700,10,450,'k€','']]},
-st:{cur:'$',acc:'var(--cold)',unit:'créneaux',
- hyp:'Hypothèses SAINT : 4 suites × 10 créneaux/jour, 365 jours, revenus annexes 3 %, frais de paiement 3 %, linge et produits 6 $ par créneau, énergie 35 k$, marketing, logiciel, assurance et maintenance 80 k$, capex 900 k$ (≈ 820 $/sq ft). Personnel : ~3,5 ETP chargés (accueil + nettoyage entre créneaux).',
- cap:40,anc:.03,fee:.03,cons:6,energy:35000,other:80000,capex:900000,
- c:[['occ','Occupation moyenne annuelle',20,90,1,50,'%','Pics matin et soir ; creux en journée'],
-    ['tkt','Revenu moyen par créneau',50,140,1,90,'$','99 $ seul, 149 $ à deux, abonnés 8 séances ≈ 50 $'],
-    ['rent','Loyer + charges (~1 100 sq ft)',50,300,5,150,'k$','Rez-de-chaussée Chelsea, ~135 $/sq ft'],
-    ['staff','Masse salariale chargée',100,450,10,240,'k$','']]}
-};
-const st={sr:{},st:{}};
-for(const k in M)M[k].c.forEach(c=>st[k][c[0]]=c[5]);
-let cur='sr';
-const f=(v,c)=>{const a=Math.abs(v);const s=v<0?'−':'';return a>=1e6?s+(a/1e6).toFixed(2).replace('.',',')+' M'+c:s+Math.round(a/1e3)+' k'+c};
-function calc(m,p){
- const vol=m.cap*365*p.occ/100;
- const core=vol*p.tkt, rev=core*(1+m.anc);
- const costs=[['Loyer + charges',p.rent*1000],['Personnel',p.staff*1000],['Énergie',m.energy],['Consommables, linge',vol*m.cons],['Marketing, logiciels, assurance',m.other],['Frais de paiement',rev*m.fee]];
- const tot=costs.reduce((a,b)=>a+b[1],0), e=rev-tot;
- return {vol,rev,costs,tot,e,mg:e/rev,pb:e>0?m.capex/e:Infinity};
+const D={su:4,occ:50,tkt:85,rent:450,etp:3,cap:800};
+const U={su:v=>v+' suites',occ:v=>v+' %',tkt:v=>v+' CHF',rent:v=>v+' CHF/m²',etp:v=>String(v).replace('.',','),cap:v=>v+' k CHF'};
+const s=Object.assign({},D);
+const f=v=>{const a=Math.abs(v),g=v<0?'−':'';return a>=1e6?g+(a/1e6).toFixed(2).replace('.',',')+' M':g+Math.round(a/1e3)+' k'};
+const yrs=x=>isFinite(x)?x.toFixed(1).replace('.',',')+' ans':'jamais';
+function calc(p,extraMk,extraCap){
+ const surf=20+p.su*22, slots=p.su*10*365*p.occ/100, rev=slots*p.tkt;
+ const costs=[['Personnel',p.etp*80000],['Loyer + charges',surf*(p.rent+40)],['Marketing, logiciels, assurance',60000+(extraMk||0)],['Linge, consommables',slots*5],['Énergie',p.su*7000+4000],['Frais de paiement',rev*.025]];
+ const tot=costs.reduce((a,b)=>a+b[1],0), e=rev-tot, capex=(p.cap+(extraCap||0))*1000;
+ const fixed=p.etp*80000+surf*(p.rent+40)+60000+(extraMk||0)+p.su*7000+4000;
+ const be=fixed/(p.su*3650*(p.tkt*.975-5))*100;
+ return {surf,slots,rev,costs,e,mg:e/rev,pb:e>0?capex/e:Infinity,be};
 }
+// header KPIs: fixed central scenario
+{const r=calc(D);$('k-rev').textContent=f(r.rev)+' CHF';$('k-e').textContent=f(r.e)+' CHF';$('k-e-txt').textContent=f(r.e)+' CHF';$('k-pb').textContent=yrs(r.pb);$('k-be').textContent=Math.round(r.be)+' %';}
 function render(){
- const m=M[cur],p=st[cur],r=calc(m,p),c=m.cur;
- document.documentElement.style.setProperty('--acc',m.acc);
- $('res').innerHTML=[[f(r.rev,c),'CA annuel'],[f(r.e,c),'EBITDA site'],[(r.mg*100).toFixed(0)+' %','marge EBITDA'],[isFinite(r.pb)?r.pb.toFixed(1).replace('.',',')+' ans':'jamais','retour sur capex']].map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
- const max=r.rev;
- const rows=[['Chiffre d\'affaires',r.rev,m.acc]].concat(r.costs.map(x=>[x[0],x[1],'var(--mut)'])).concat([['EBITDA',r.e,r.e>=0?'var(--good)':'var(--bad)']]);
- $('bars').innerHTML=rows.map(x=>`<div class="row"><span>${x[0]}</span><div class="tr"><div class="bf" style="width:${Math.max(0,x[1]/max*100).toFixed(1)}%;background:${x[2]}"></div></div><span class="v">${f(x[1],c)}</span></div>`).join('')+`<p class="src">${Math.round(r.vol).toLocaleString('fr-FR')} ${m.unit} par an.</p>`;
- $('hyp').textContent=m.hyp;
- const sc=[['Prudent',cur=='sr'?50:35,cur=='sr'?30:80],['Central',p.occ,p.tkt],['Optimiste',cur=='sr'?85:70,cur=='sr'?38:100]];
- $('scen').innerHTML=sc.map(s=>{const q=Object.assign({},p,{occ:s[1],tkt:s[2]}),x=calc(m,q);return `<tr><td>${s[0]}</td><td class="n">${s[1]} %</td><td class="n">${s[2]} ${c}</td><td class="n">${f(x.rev,c)}</td><td class="n">${f(x.e,c)}</td><td class="n">${isFinite(x.pb)?x.pb.toFixed(1).replace('.',',')+' ans':'jamais'}</td></tr>`}).join('');
+ const r=calc(s);
+ for(const k in s){$('o-'+k).textContent=U[k](s[k]);$('i-'+k).value=s[k];}
+ document.querySelectorAll('[data-r]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.r===s.rent));
+ $('res').innerHTML=[[f(r.rev)+' CHF','CA annuel HT',''],[f(r.e)+' CHF','EBITDA',r.e<0?'var(--bad)':'var(--good)'],[(r.mg*100).toFixed(0)+' %','marge EBITDA',''],[yrs(r.pb),'retour sur investissement',''],[Math.round(r.be)+' %','remplissage à l\'équilibre','']].map(x=>`<div><b style="color:${x[2]||'inherit'}">${x[0]}</b><span>${x[1]}</span></div>`).join('');
+ const filled=Math.round(s.occ/10);
+ $('suites').innerHTML=Array.from({length:s.su},(_,n)=>`<div class="suite"><div>Suite ${n+1}</div><div class="slots">${Array.from({length:10},(_,i)=>`<i class="${i<filled?'f':''}"></i>`).join('')}</div></div>`).join('');
+ $('cap-txt').textContent=`Une case = un créneau d'une heure. ${Math.round(r.slots/365)} créneaux vendus par jour sur ${s.su*10}, soit ${Math.round(r.slots).toLocaleString('fr-CH')} par an, dans environ ${r.surf} m².`;
+ const rows=[['Chiffre d\'affaires',r.rev,'var(--cold)']].concat(r.costs.map(x=>[x[0],x[1],'var(--mut)'])).concat([['EBITDA',r.e,r.e>=0?'var(--good)':'var(--bad)']]);
+ $('bars').innerHTML=rows.map(x=>`<div class="row"><span>${x[0]}</span><div class="tr"><div class="bf" style="width:${Math.min(100,Math.max(0,x[1]/r.rev*100)).toFixed(1)}%;background:${x[2]}"></div></div><span class="v">${f(x[1])}</span></div>`).join('');
+ const sc=[['Prudent',35,75],['Central',50,85],['Optimiste',65,95]], loc=[[250,15000,100],[450,0,0],[700,0,0]];
+ $('mx').innerHTML=sc.map(c=>`<tr><td>${c[0]}<small>${c[1]} % rempli, ${c[2]} CHF</small></td>`+loc.map(l=>{const x=calc(Object.assign({},s,{occ:c[1],tkt:c[2],rent:l[0]}),l[1],l[2]);return `<td class="n ${x.e>=0?'g':'r'}">${f(x.e)} CHF<small>(${yrs(x.pb)})</small></td>`}).join('')+'</tr>').join('');
 }
-function build(){
- const m=M[cur];
- $('ctls').innerHTML=m.c.map(c=>`<div class="ctl"><label for="i-${c[0]}">${c[1]} <output id="o-${c[0]}">${st[cur][c[0]]} ${c[6]}</output></label><input type="range" id="i-${c[0]}" min="${c[2]}" max="${c[3]}" step="${c[4]}" value="${st[cur][c[0]]}">${c[7]?`<small>${c[7]}</small>`:''}</div>`).join('')+'<div class="tabs"><button id="reset">Réinitialiser</button></div>';
- m.c.forEach(c=>{$('i-'+c[0]).addEventListener('input',e=>{st[cur][c[0]]=+e.target.value;$('o-'+c[0]).textContent=e.target.value+' '+c[6];render()})});
- $('reset').addEventListener('click',()=>{m.c.forEach(c=>st[cur][c[0]]=c[5]);build()});
- render();
-}
-['sr','st'].forEach(k=>$('t-'+k).addEventListener('click',()=>{cur=k;$('t-sr').setAttribute('aria-pressed',k=='sr');$('t-st').setAttribute('aria-pressed',k=='st');build()}));
-build();
+for(const k in s)$('i-'+k).addEventListener('input',e=>{s[k]=+e.target.value;render()});
+document.querySelectorAll('[data-r]').forEach(b=>b.addEventListener('click',()=>{s.rent=+b.dataset.r;render()}));
+$('reset').addEventListener('click',()=>{Object.assign(s,D);render()});
+render();
 }
 </script>
 </body>
